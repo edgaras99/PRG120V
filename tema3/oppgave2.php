@@ -1,6 +1,6 @@
 <?php       /* oppgave 2 */
 /*
-/*programmet skal skrive ut tallene fra 1 til 10 og kvadratene av disse
+/*programmet skal skrive ut tallene fra 1 til 10 og kvadratene
 */
 for ($tall=1;$tall<=10;$tall++)
  {
