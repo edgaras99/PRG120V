@@ -3,7 +3,7 @@
 /* Programmet mottar emnekode fra et HTML-skjema
 /* Programmet sjekker om emnekode er korrekt fylt ut
 */
-$emnekode=$_POST ["emnekode"];
+$emnekode=$_POST["emnekode"];
 $lovligEmnekode=true;
 if (!$emnekode) /* emnekode er ikke fylt ut */
 {
