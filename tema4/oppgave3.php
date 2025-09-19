@@ -1,9 +1,11 @@
-<?php
-/* programmet motter emnekode fra et html
-/* også sjekker om den er korrekt fylt ut 
+<?php  /*  Eksempel 5 */
+/*
+/*    Programmet mottar emnekode fra et HTML-skjema 
+/*    Programmet sjekker om emnekode er korrekt fylt ut
 */
-$emnekode=$_POST 
-$lovligEmnekode=true;
+  $emnekode=$_POST ["emnekode"];
+
+  $lovligEmnekode=true;
 
   if (!$emnekode)  /* emnekode er ikke fylt ut */
     {
