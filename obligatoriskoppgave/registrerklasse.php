@@ -15,37 +15,29 @@
   <input type="reset" value="Nullstill" id="nullstill" name="nullstill" /> <br />
 </form>
 
-<?php 
-  if (isset($_POST ["registrerKlasseKnapp"]))
-    {
-      $klassekode=$_POST ["klassekode"];
-      $klassenavn=$_POST ["klassenavn"];
-    
+<?php
+if (isset($_POST["registrerKlasseKnapp"])) {
+    $klassekode = $_POST["klassekode"];
+    $klassenavn = $_POST["klassenavn"];
+    $studiumkode = $_POST["studiumkode"];
 
-      if (!$klassekode || !$klassenavn )
-        {
-          print ("B&aring;de postnr og poststed m&aring; fylles ut");
-        }
-      else
-        {
-          include("db-tlkobling.php");  /* tilkobling til database-serveren utført og valg av database foretatt */
+    if (!$klassekode || !$klassenavn || !$studiumkode) {
+        print ("Både klassekode, klassenavn og studiumkode må fylles ut");
+    } else {
+        include("db-tlkobling.php");
 
-          $sqlSetning="SELECT * FROM klassenavn WHERE klassekode='$klassekode';";
-          $sqlResultat=mysqli_query($db,$sqlSetning) or die ("ikke mulig &aring; hente data fra databasen");
-          $antallRader=mysqli_num_rows($sqlResultat); 
+        $sqlSetning = "SELECT * FROM klasse WHERE klassekode='$klassekode';";
+        $sqlResultat = mysqli_query($db, $sqlSetning) or die("ikke mulig å hente data fra databasen");
+        $antallRader = mysqli_num_rows($sqlResultat);
 
-          if ($antallRader!=0)  /* poststedet er registrert fra før */
-            {
-              print ("Poststedet er registrert fra f&oslashr");
-            }
-          else
-            {
-              $sqlSetning="INSERT INTO klassenavn VALUES('$klassekode','$klassenavn');";
-              mysqli_query($db,$sqlSetning) or die ("ikke mulig &aring; registrere data i databasen");
-                /* SQL-setning sendt til database-serveren */
+        if ($antallRader != 0) {
+            print ("Klassen er registrert fra før");
+        } else {
+            $sqlSetning = "INSERT INTO klasse VALUES('$klassekode','$klassenavn','$studiumkode');";
+            mysqli_query($db, $sqlSetning) or die("ikke mulig å registrere data i databasen");
 
-              print ("F&oslash;lgende poststed er n&aring; registrert: $klassekode $klassenavn");
-                 }
+            print ("Følgende klasse er nå registrert: $klassekode $klassenavn $studiumkode");
         }
     }
-?> 
+}
+?>
