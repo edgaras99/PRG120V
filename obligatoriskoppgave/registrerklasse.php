@@ -7,20 +7,22 @@
 
 <h3>Registrer klasse </h3>
 
-<form method="post" action="" id="registrerPoststedSkjema" name="registrerPoststedSkjema">
-  Postnr <input type="text" id="postnr" name="postnr" required /> <br/>
-  Poststed <input type="text" id="poststed" name="poststed" required /> <br/>
-  <input type="submit" value="Registrer poststed" id="registrerPoststedKnapp" name="registrerPoststedKnapp" /> 
+<form method="post" action="" id="registrerKlasseSkjema" name="registrerklasseSkjema">
+  klassekode <input type="text" id="klassekode" name="klassekode" required /> <br/>
+  klassenavn <input type="text" id="klassenavn" name="klassenavn" required /> <br/>
+  studiumkode <input type="text" id="studiumkode" name="studiumkode" required /> <br/> 
+  <input type="submit" value="Registrer klasse" id="registrerKlasseKnapp" name="registrerKlasseKnapp" /> 
   <input type="reset" value="Nullstill" id="nullstill" name="nullstill" /> <br />
 </form>
 
 <?php 
-  if (isset($_POST ["registrerPoststedKnapp"]))
+  if (isset($_POST ["registrerKlasseKnapp"]))
     {
-      $postnr=$_POST ["postnr"];
-      $poststed=$_POST ["poststed"];
+      $klassekode=$_POST ["klassekode"];
+      $klassenavn=$_POST ["klassenavn"];
+      $studiumkode=$_POST [ "studiumkode"]
 
-      if (!$postnr || !$poststed)
+      if (!$postnr || !$poststed || !$studiumkode)
         {
           print ("B&aring;de postnr og poststed m&aring; fylles ut");
         }
