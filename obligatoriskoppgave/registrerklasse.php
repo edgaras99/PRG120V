@@ -22,7 +22,7 @@
       $klassenavn=$_POST ["klassenavn"];
       $studiumkode=$_POST [ "studiumkode"]
 
-      if (!$klassekode || !$klassenavn || !$studiumkode  )
+      if (!$klassekode || !$klassenavn || !$studiumkode)
         {
           print ("B&aring;de postnr og poststed m&aring; fylles ut");
         }
@@ -30,7 +30,7 @@
         {
           include("db-tilkobling.php");  /* tilkobling til database-serveren utført og valg av database foretatt */
 
-          $sqlSetning="SELECT * FROM poststed WHERE postnr='$postnr';";
+          $sqlSetning="SELECT * FROM klassenavn WHERE klassekode='$klassekode';";
           $sqlResultat=mysqli_query($db,$sqlSetning) or die ("ikke mulig &aring; hente data fra databasen");
           $antallRader=mysqli_num_rows($sqlResultat); 
 
@@ -40,11 +40,11 @@
             }
           else
             {
-              $sqlSetning="INSERT INTO poststed VALUES('$postnr','$poststed');";
+              $sqlSetning="INSERT INTO klassenavn VALUES('$klassekode','$klassenavn');";
               mysqli_query($db,$sqlSetning) or die ("ikke mulig &aring; registrere data i databasen");
                 /* SQL-setning sendt til database-serveren */
 
-              print ("F&oslash;lgende poststed er n&aring; registrert: $postnr $poststed");
+              print ("F&oslash;lgende poststed er n&aring; registrert: $klassekode $klassenavn");
                  }
         }
     }
