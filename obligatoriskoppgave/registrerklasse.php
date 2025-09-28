@@ -22,7 +22,7 @@
       $klassenavn=$_POST ["klassenavn"];
       $studiumkode=$_POST [ "studiumkode"]
 
-      if (!$klassekode || !$klassenavn || !$studiumkode)
+      if (!$klassekode || !$klassenavn )
         {
           print ("B&aring;de postnr og poststed m&aring; fylles ut");
         }
