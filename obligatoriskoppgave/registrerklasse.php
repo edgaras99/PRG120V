@@ -43,3 +43,7 @@
                 /* SQL-setning sendt til database-serveren */
 
               print ("F&oslash;lgende poststed er n&aring; registrert: $postnr $poststed");
+                 }
+        }
+    }
+?> 
