@@ -19,7 +19,7 @@
 if (isset($_POST["registrerKlasseKnapp"]))
      {
     $klassekode= $_POST["klassekode"];
-    $klassekodavn = $_POST["klassenavn"];
+    $klassenavn = $_POST["klassenavn"];
     $studiumkode = $_POST["studiumkode"];
 
     if (!$klassekode || !$klassenavn || !$studiumkode) {
