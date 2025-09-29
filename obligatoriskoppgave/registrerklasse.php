@@ -1,7 +1,7 @@
 <?php  /* registrer-klasse */
 /*
 /*  Programmet lager et html-skjema for å registrere et klasse
-/*  Programmet registrerer data (klassekode, klassenavn og studiumkode) i databasen
+/*  Programmet skal registrere data (klassekode, klassenavn og studiumkode) i databasen
 */
 ?> 
 
@@ -16,7 +16,8 @@
 </form>
 
 <?php
-if (isset($_POST["registrerKlasseKnapp"])) {
+if (isset($_POST["registrerKlasseKnapp"]))
+     {
     $klassekode = $_POST["klassekode"];
     $klassenavn = $_POST["klassenavn"];
     $studiumkode = $_POST["studiumkode"];
