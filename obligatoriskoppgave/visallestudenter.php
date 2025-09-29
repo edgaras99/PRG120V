@@ -1,6 +1,6 @@
-<?php /* vis-alle-klasser */
+<?php /* vis-alle-studenter */
 /*
-   Programmet skriver ut alle registrerte klasser
+   Programmet skriver ut alle registrerte studenter
 */
 include("db-tlkobling.php"); /* tilkobling til database-serveren utført og valg av database foretatt */
 
