@@ -28,7 +28,7 @@ if (isset($_POST["registrerKlasseKnapp"]))
     } else {
         include("db-tlkobling.php");
 
-        $sqlSetning = "SELECT * FROM student WHERE klassekode='$klassekode';";
+        $sqlSetning = "SELECT * FROM student WHERE brukernavn='$brukernavn';";
         $sqlResultat = mysqli_query($db, $sqlSetning) or die("ikke mulig å hente data fra databasen");
         $antallRader = mysqli_num_rows($sqlResultat);
 
