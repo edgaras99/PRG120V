@@ -16,7 +16,7 @@
   <input type="reset" value="Nullstill" id="nullstill" name="nullstill" /> <br />
 </form>
 <?php
-if (isset($_POST["registrerKlasseKnapp"]))
+if (isset($_POST["registrerStudentKnapp"]))
      {
     $brukernavn = $_POST["brukernavn"];
     $fornavn = $_POST["fornavn"];
