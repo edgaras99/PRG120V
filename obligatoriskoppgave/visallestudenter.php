@@ -4,7 +4,7 @@
 */
 include("db-tlkobling.php"); /* tilkobling til database-serveren utført og valg av database foretatt */
 
-$sqlSetning="SELECT * FROM klasse ORDER BY klassekode;";
+$sqlSetning="SELECT * FROM student ORDER BY brukernavn;";
 $sqlResultat=mysqli_query($db,$sqlSetning) or die("ikke mulig å hente data fra databasen");
 
 $antallRader=mysqli_num_rows($sqlResultat); /* antall rader i resultatet beregnet */
