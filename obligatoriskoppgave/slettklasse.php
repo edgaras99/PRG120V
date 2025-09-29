@@ -4,15 +4,16 @@
    Programmet sletter den valgte klassen hvis ingen studenter er registrert
 */
 ?>
-<script src="funksjoner.js"></script>
+<script src="funskjoner.js"></script>
 
 <h3>Slett klasse</h3>
 
 <form method="post" action="" id="slettKlasseSkjema" name="slettKlasseSkjema" onSubmit="return bekreft()">
+    <select name="klassekode" required>
+        <option value="">velg klasse</option>
     <?php 
-    include("dynamiske-funskjoner.php"); 
     // Denne funksjonen lager en <select> med alle eksisterende klassekoder
-    listeboksKlassekode(); 
+   include("dynamiske-funksjoner.php"); listeboksKlassekode();
     ?> 
     <br/>
     <input type="submit" value="Slett klasse" name="slettKlasseKnapp" id="slettKlasseKnapp" />
