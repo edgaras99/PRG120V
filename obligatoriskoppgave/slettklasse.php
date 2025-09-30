@@ -32,6 +32,7 @@ if (isset($_POST["slettKlasseKnapp"])) {
 
     if (mysqli_num_rows($res) == 0) {
         print("Klassen med kode <b>$klassekode</b> finnes ikke.<br />");
+        if (mysqli_num_rows($resStudent) > 0) { print("Kan ikke slette klassen <b>$klassekode</b> fordi det finnes studenter registrert.<br />"); 
     } else {
         // Slett klassen
         $sqlSetning = "DELETE FROM klasse WHERE klassekode='$klassekode';";
