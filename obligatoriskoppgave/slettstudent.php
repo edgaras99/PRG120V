@@ -1,19 +1,19 @@
-<?php /* slett- */
+<?php /* slett-student */
 /*
-   Programmet lager et skjema for å kunne slette en klasse
-   Programmet sletter den valgte klassen uten sjekk for studenter
+   Programmet lager et skjema for å kunne slette en student
+   Programmet sletter den valgte studenten
 */
 ?>
 <script src="funskjoner.js"></script>
 
-<h3>Slett klasse</h3>
+<h3>Slett student</h3>
 
 <form method="post" action="" id="slettStudentSkjema" name="slettStudentSkjema" onSubmit="return bekreft()">
-    <select name="klassekode" required>
-        <option value="">Velg klasse</option>
+    <select name="brukernavn" required>
+        <option value="">Velg student</option>
         <?php 
         include("dynamiske-funksjoner.php"); 
-        listeboksstudentkode(); // lager <option>-elementer for alle student
+        listeboksStudent(); // lager <option>-elementer for alle studenter
         ?> 
     </select>
     <br/><br/>
@@ -26,18 +26,18 @@ if (isset($_POST["slettStudentKnapp"])) {
 
     $brukernavn = $_POST["brukernavn"];
 
-    // Sjekk at klassen finnes
+    // Sjekk at studenten finnes
     $sqlKontroll = "SELECT * FROM student WHERE brukernavn='$brukernavn';";
-    $res = mysqli_query($db, $sqlKontroll) or die("Feil ved sjekk av klasse");
+    $res = mysqli_query($db, $sqlKontroll) or die("Feil ved sjekk av student");
 
     if (mysqli_num_rows($res) == 0) {
-        print("Klassen med kode <b>$brukernavn</b> finnes ikke.<br />");
+        print("Student med brukernavn <b>$brukernavn</b> finnes ikke.<br />");
     } else {
-        // Slett klassen
-        $sqlSetning = "DELETE FROM student WHERE klassekode='$brukernavn';";
+        // Slett studenten
+        $sqlSetning = "DELETE FROM student WHERE brukernavn='$brukernavn';";
         mysqli_query($db, $sqlSetning) or die("Ikke mulig å slette data i databasen");
         
-        print("Følgende klasse er nå slettet: <b>$brukernavn</b><br />");
+        print("Følgende student er nå slettet: <b>$brukernavn</b><br />");
     }
 }
 ?>
