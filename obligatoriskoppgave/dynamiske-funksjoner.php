@@ -16,7 +16,7 @@ print("<option value='$klassekode'>$klassenavn $studiumkode </option>"); /* ny v
 laget */
 }
 }
-function listeboksEmnekode ()
+function listeboksStudent ()
 {
 include("db-tilkobling.php"); /* tilkobling til database-server og valg av database utført */
 $sqlSetning="SELECT * FROM student ORDER BY brukernavn;";
