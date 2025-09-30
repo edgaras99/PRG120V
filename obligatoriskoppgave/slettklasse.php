@@ -21,7 +21,7 @@
 
 <?php
 if (isset($_POST["slettKlasseKnapp"])) {
-    include("db-tilkobling.php"); /* tilkobling til database */
+    include("db-tlkobling.php"); /* tilkobling til database */
 
     $klassekode = $_POST["klassekode"];
 
