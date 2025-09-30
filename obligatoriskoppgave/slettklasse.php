@@ -1,7 +1,7 @@
 <?php /* slett-klasse */
 /*
    Programmet lager et skjema for å kunne slette en klasse
-   Programmet sletter den valgte klassen uten sjekk for studenter
+   Programmet sjekker om det finnes studenter før sletting
 */
 ?>
 <script src="funskjoner.js"></script>
@@ -22,7 +22,7 @@
 
 <?php
 if (isset($_POST["slettKlasseKnapp"])) {
-    include("db-tlkobling.php"); /* tilkobling til database */
+    include("db-tlkobling.php"); // tilkobling til database
 
     $klassekode = $_POST["klassekode"];
 
@@ -32,13 +32,20 @@ if (isset($_POST["slettKlasseKnapp"])) {
 
     if (mysqli_num_rows($res) == 0) {
         print("Klassen med kode <b>$klassekode</b> finnes ikke.<br />");
-        if (mysqli_num_rows($resStudent) > 0) { print("Kan ikke slette klassen <b>$klassekode</b> fordi det finnes studenter registrert.<br />"); 
     } else {
-        // Slett klassen
-        $sqlSetning = "DELETE FROM klasse WHERE klassekode='$klassekode';";
-        mysqli_query($db, $sqlSetning) or die("Ikke mulig å slette data i databasen");
-        
-        print("Følgende klasse er nå slettet: <b>$klassekode</b><br />");
+        // Sjekk om det finnes studenter registrert i klassen
+        $sqlStudent = "SELECT * FROM student WHERE klassekode='$klassekode';";
+        $resStudent = mysqli_query($db, $sqlStudent) or die("Feil ved sjekk av studenter");
+
+        if (mysqli_num_rows($resStudent) > 0) {
+            print("Kan ikke slette klassen <b>$klassekode</b> fordi det finnes studenter registrert.<br />");
+        } else {
+            // Slett klassen
+            $sqlSetning = "DELETE FROM klasse WHERE klassekode='$klassekode';";
+            mysqli_query($db, $sqlSetning) or die("Ikke mulig å slette data i databasen");
+
+            print("Følgende klasse er nå slettet: <b>$klassekode</b><br />");
+        }
     }
 }
 ?>
