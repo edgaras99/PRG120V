@@ -18,7 +18,7 @@ laget */
 }
 function listeboksStudent ()
 {
-include("db-tilkobling.php"); /* tilkobling til database-server og valg av database utført */
+include("db-tlkobling.php"); /* tilkobling til database-server og valg av database utført */
 $sqlSetning="SELECT * FROM student ORDER BY brukernavn;";
 $sqlResultat=mysqli_query($db,$sqlSetning) or die ("ikke mulig &aring; hente data fra databasen");
 $antallRader=mysqli_num_rows($sqlResultat); /* antall rader i resultatet beregnet */
