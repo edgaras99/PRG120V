@@ -14,7 +14,7 @@
   klassekode:
   <select id="klassekode" name="klassekode" required>
     <option value="">-- Velg klassekode --</option>
-    <?php listeboksKlassekode(); ?>
+    <?php listeboksKlassestudent(); ?>
   </select>
   <input type="submit" value="Registrer student" id="registrerStudentKnapp" name="registrerStudentKnapp" /> 
   <input type="reset" value="Nullstill" id="nullstill" name="nullstill" /> <br />
