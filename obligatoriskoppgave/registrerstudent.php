@@ -17,13 +17,6 @@
     <?php
        include("dynamiske-funksjoner.php");
 listeboksKlassekodestudent();
-      $sqlSetning = "SELECT klassekode FROM klasse ORDER BY klassekode;";
-      $sqlResultat = mysqli_query($db, $sqlSetning) or die("Ikke mulig å hente klassekoder fra databasen");
-
-      while($rad = mysqli_fetch_array($sqlResultat)) {
-          $klassekode = $rad["klassekode"];
-          echo "<option value='$klassekode'>$klassekode</option>";
-      }
     ?>
   <input type="submit" value="Registrer student" id="registrerStudentKnapp" name="registrerStudentKnapp" /> 
   <input type="reset" value="Nullstill" id="nullstill" name="nullstill" /> <br />
