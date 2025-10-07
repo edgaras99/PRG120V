@@ -16,7 +16,7 @@
     <option value="">Velg klassekode</option>
     <?php
        include("dynamiske-funksjoner.php");
-
+listeboksKlassekode();
       $sqlSetning = "SELECT klassekode FROM klasse ORDER BY klassekode;";
       $sqlResultat = mysqli_query($db, $sqlSetning) or die("Ikke mulig å hente klassekoder fra databasen");
 
