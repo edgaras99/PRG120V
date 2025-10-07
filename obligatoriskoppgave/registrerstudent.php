@@ -13,6 +13,7 @@
   etternavn <input type="text" id="etternavn" name="etternavn" required /> <br/> 
    Klassekode: 
   <select id="klassekode" name="klassekode" required>
+    <option value="">Velg klassekode</option>
     <?php
       include("db-tlkobling.php");
 
