@@ -11,11 +11,7 @@
   brukernavn <input type="text" id="brukernavn" name="brukernavn" required /> <br/>
   fornavn <input type="text" id="fornavn" name="fornavn" required /> <br/>
   etternavn <input type="text" id="etternavn" name="etternavn" required /> <br/> 
-  klassekode:
-  <select id="klassekode" name="klassekode" required>
-    <option value="">-- Velg klassekode --</option>
-    <?php listeboksKlassekode(); ?>
-  </select>
+  Klassekode: <input type="text" id="klassekode" name="klassekode" required /> <br/> 
   <input type="submit" value="Registrer student" id="registrerStudentKnapp" name="registrerStudentKnapp" /> 
   <input type="reset" value="Nullstill" id="nullstill" name="nullstill" /> <br />
 </form>
