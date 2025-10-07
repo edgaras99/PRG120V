@@ -1,7 +1,7 @@
 <?php 
 
 function listeboksKlassestudent () {
-  include("db-tilkobling.php"); // Pass på at denne peker riktig
+  include("db-tlkobling.php"); // Pass på at denne peker riktig
 
   $sqlSetning = "SELECT * FROM klasse ORDER BY klassekode;";
   $sqlResultat = mysqli_query($db, $sqlSetning) or die("Ikke mulig å hente data fra databasen");
