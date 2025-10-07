@@ -1,5 +1,19 @@
 <?php 
 
+function listeboksKlassestudent () {
+  include("db-tilkobling.php"); // Pass på at denne peker riktig
+
+  $sqlSetning = "SELECT * FROM klasse ORDER BY klassekode;";
+  $sqlResultat = mysqli_query($db, $sqlSetning) or die("Ikke mulig å hente data fra databasen");
+
+  while ($rad = mysqli_fetch_array($sqlResultat)) {
+    $klassekode = $rad["klassekode"];
+    $klassenavn = $rad["klassenavn"];
+    $studiumkode = $rad["studiumkode"];
+    echo "<option value='$klassekode'>$klassekode – $klassenavn ($studiumkode)</option>";
+  }
+}
+
 function listeboksKlassekode ()
 {
 include("db-tlkobling.php"); /* tilkobling til database-server og valg av database utført */
